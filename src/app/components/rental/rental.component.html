@@ -1,0 +1,49 @@
+<table  class="table table-success table-striped table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Rent Id</th>
+      <th scope="col">Brand Name</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Rent Date</th>
+      <th scope="col">Return Time</th>
+      <th scope="col">Daily Price</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let rental of rentalsDto">
+      <th scope="row">{{ rental.Id }}</th>
+      <th scope="row">{{ rental.brandName}}</th>
+      <th scope="row">{{ rental.customerName }}</th>
+      <th scope="row">{{ rental.rentDate }}</th>
+      <th scope="row">{{ rental.returnTime }}</th>
+      <th scope="row">{{ rental.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2" }}</th>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<!--
+<table  class="table">
+  <thead class="table-dark">
+      <tr>
+          <th>rentalId</th>
+          <th>carId</th>
+          <th>customerId</th>
+          <th>rentDate</th>
+          <th>returnTime </th>
+
+      </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let rental of rentals" class="table table-striped">
+          <td>{{rental.rentalId}}</td>
+          <td>{{rental.carId}}</td>
+          <td>{{rental.customerId}}</td>
+          <td>{{rental.rentDate}}</td>
+          <td>{{rental.returnTime}}</td>
+
+      </tr>
+  </tbody>
+</table> -->
