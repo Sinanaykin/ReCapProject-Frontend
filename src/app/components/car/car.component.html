@@ -7,7 +7,9 @@
     <tr>
       <th scope="col">Car Id</th>
       <th scope="col">Brand Name</th>
+      <th scope="col">Car Name</th>
       <th scope="col">Color Name</th>
+      <th scope="col">Model Year</th>
       <th scope="col">Daily Price</th>
 
     </tr>
@@ -16,7 +18,9 @@
     <tr *ngFor="let car of carsDto">
       <th scope="row">{{ car.carId }}</th>
       <th scope="row">{{ car.brandName }}</th>
+      <th scope="row">{{ car.carName }}</th>
       <th scope="row">{{ car.colorName }}</th>
+      <th scope="row">{{ car.modelYear }}</th>
       <th scope="row">{{ car.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2" }}</th>
 
     </tr>
