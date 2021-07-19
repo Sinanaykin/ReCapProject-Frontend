@@ -1,25 +1,17 @@
-
 <div class="container">
   <app-navi></app-navi>
-  <div class="row ">
-    <div class="col-md-3  mt-5">
+  <div class="row">
+    <div class="col-md-3">
       <app-brand></app-brand>
       <br>
       <app-color></app-color>
-
     </div>
     <div class="col-md-9">
-     <br>
-     <br>
-     <br>
-      <app-car></app-car>
       <br>
-      <app-customer></app-customer>
+      <router-outlet></router-outlet>
       <br>
       <app-rental></app-rental>
+      <br>
     </div>
-
-  <router-outlet></router-outlet>
-  © 2021 GitHub, Inc.
+  </div>
 </div>
-

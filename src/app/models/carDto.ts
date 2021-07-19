@@ -5,6 +5,8 @@ export interface CarDto{
   modelYear:number;
   carName:string;
   dailyPrice : number;
+  brandId:number;
+  description:string;
 
 
 }

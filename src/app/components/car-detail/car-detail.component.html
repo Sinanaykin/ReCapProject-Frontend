@@ -1,0 +1,27 @@
+
+
+<div class="table-responsive-md">
+  <div class=" mt-5 pt-3 accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+          aria-expanded="true" aria-controls="collapseOne">
+          Araç Detayları
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+
+         <li class="list-group-item"><strong>Marka: </strong>{{carDetails?.brandName}}</li>  <!--Soru işaretini ilk basta boş gelirse sorun olmasın diye ekledik -->
+          <li class="list-group-item"><strong>Renk: </strong>{{carDetails?.colorName}}</li>
+          <li class="list-group-item"><strong>Fiyat/Gün: </strong>{{carDetails?.dailyPrice}} ₺ </li>
+          <li class="list-group-item"><strong>Model Yılı: </strong>{{carDetails?.modelYear}}</li>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+
+
+
