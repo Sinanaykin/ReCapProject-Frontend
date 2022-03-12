@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { CarService } from 'src/app/services/car.service';
 import { CarDto } from 'src/app/models/carDto';
 import { CarDetailService } from 'src/app/services/car-detail.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { Car } from 'src/app/models/car';
 import { ActivatedRoute } from '@angular/router';
+import { CarImage } from 'src/app/models/carImage';
 
 
 @Component({
@@ -17,23 +19,35 @@ export class CarComponent implements OnInit {
 
   carsDto: CarDto[]=[]
   currentCar:CarDto
+  carImages:CarImage[];
+  carId:number=1;
+  car !: Car;
+  imgUrl:string="https://localhost:44304/"
+  defaultImage="images/logo.png";
 
   dataLoaded=false;
 
-  constructor(private  CarDetailService:CarDetailService , private activatedRoute:ActivatedRoute) { }
+  constructor(
+    private  CarDetailService:CarDetailService ,
+    private CarImageService:CarImageService,
+    private activatedRoute:ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+
+
      // bu aslında c# daki public void NgOnIt() metodu gibi burda syntax farklı ondan böyle yazıyoruz
      this.activatedRoute.params.subscribe(params=>{//activatedRoute a gidip categoryId verilmişmi ona bakıcaz
-      if (params["brandId"]) {//eğer categoryId si varsa
-        this.getCarsByBrand(params["brandId"]) //getProductsByCategory bu metodu çalıştır içinede params ın categoryId sini yolla
+      this.getCarImagesByCarId(params["carId"]);
+      if (params["brandId"]) {//eğer brand si varsa
+        this.getCarsByBrand(params["brandId"]) //getCarsByBrand bu metodu çalıştır içinede params ın brandId sini yolla
       }
       else if(params["colorId"]){
         this.getCarsByColor(params["colorId"])
 
       }
       else{
-        this.getDetails()//eğer categoryId yoksa getProducts i çalıştır diyoruz burdada
+        this.getDetails()//eğer brandId yoksa getDetails i çalıştır diyoruz burdada
       }
     })
 
@@ -48,10 +62,8 @@ export class CarComponent implements OnInit {
     getDetails(){
       this.CarDetailService.getDetails().subscribe(response => {
         this.carsDto = response.data;
-
         this.dataLoaded = true;
       });
-      console.log();
     }
 
     getCarsByColor(colorId:number) {
@@ -69,6 +81,13 @@ export class CarComponent implements OnInit {
       });
       console.log();
      }
+     getCarImagesByCarId(carId: number) {
+
+      this.CarImageService.getCarImagesByCarId(carId).subscribe((response) => {
+        this.carImages = response.data;
+
+      });
+    }
 
 
 }

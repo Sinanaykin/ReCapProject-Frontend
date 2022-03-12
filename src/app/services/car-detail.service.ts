@@ -33,7 +33,11 @@ getCarsByBrand(brandId:number):Observable<ListResponseModel<CarDto>> {//Eğer ca
 
  getcardetailbyid(id: number): Observable<EntityResponseModel<CarDto>> {
   let newPath = this.apiUrl + "cars/getcardetails?id="+id;
-  return this.httpClient.get<EntityResponseModel<CarDto>>(newPath);
+  return this.httpClient.get<EntityResponseModel<CarDto>>(newPath);//EntityResponseModel=Gelen tek nesne için responsemodel yoktu o yüzden bunu da ekledik dizi dönmeyen
 }
+
+
+
+
 
 }

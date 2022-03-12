@@ -1,31 +1,4 @@
-<!-- <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
 
-<table *ngIf="dataLoaded!=false" class="table table-success table-striped table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th scope="col">Car Id</th>
-      <th scope="col">Brand Name</th>
-      <th scope="col">Car Name</th>
-      <th scope="col">Color Name</th>
-      <th scope="col">Model Year</th>
-      <th scope="col">Daily Price</th>
-
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let car of carsDto">
-      <th scope="row">{{ car.carId }}</th>
-      <th scope="row">{{ car.brandName }}</th>
-      <th scope="row">{{ car.carName }}</th>
-      <th scope="row">{{ car.colorName }}</th>
-      <th scope="row">{{ car.modelYear }}</th>
-      <th scope="row">{{ car.dailyPrice | currency: "TRY":"symbol-narrow":"1.2-2" }}</th>
-
-    </tr>
-  </tbody>
-</table> -->
 
 
 <div *ngIf="dataLoaded==false" class="spinner-border text-primary" role="status">
@@ -34,6 +7,14 @@
 <div class="row">
   <div  class="col-lg-4 col-md-6 shadow-lg p-3 mb-5 bg-body rounded " *ngFor="let car of carsDto">
   <div class="card border-0 mb-3" style="width: 18rem;">
+
+    <img  *ngIf="car.imagePath"
+    [src]="imgUrl + car.imagePath" class="card-img-top"
+    style="object-fit: cover;" width="100" height="160" alt="...">
+
+    <a><img *ngIf="!car.imagePath" [src]="imgUrl+'images/logo1.jpg'"  class="card-img-top"
+  style="object-fit: cover;" width="100" height="160" alt="..."></a>
+
     <div class="card-body text-center">
       <h4>
         <a routerLink="/cars/details/{{car.carId}}" class="card-title text-decoration-none h5" style="color:#007bff;">{{car.carName}} </a>

@@ -14,12 +14,12 @@
     (click)="setAllBrand()"
     [class]="getAllBrandClass()"
     routerLink="/cars"
-     class="list-group-item  list-group-item-success">Markalar
+     class="list-group-item  list-group-item-success ">Markalar
     </li>
 
     <li (click)="setCurrentBrand(brand)"
     routerLink= "/cars/brand/{{brand.brandId}}"
     *ngFor="let brand of brands"
-    [class]="getCurrentBrandClass(brand)" >{{brand.brandName}}</li>
+    [class]="getCurrentBrandClass(brand)" class="list-group-item-dark" >{{brand.brandName}}</li>
   </ul>
 

@@ -29,14 +29,24 @@ export class BrandComponent implements OnInit {
 
   }
 
-  setCurrentBrand(brand:Brand){
-    this.currentBrand=brand;
 
-  }
 
 
   setAllBrand(){
     this.getBrands();
+  }
+  getAllBrandClass(){
+    if (!this.currentBrand)//eğer benim categoryim yoksa
+    {
+      return "list-group-item active" //bu active olsun
+    }else{
+      return "list-group-item "  //eşit değilse active olmayan yaptık
+    }
+  }
+
+  setCurrentBrand(brand:Brand){
+    this.currentBrand=brand;
+
   }
 
   getCurrentBrandClass(brand:Brand){
@@ -48,13 +58,5 @@ export class BrandComponent implements OnInit {
     }
   }
 
-  getAllBrandClass(){
-    if (!this.currentBrand)//eğer benim categoryim yoksa
-    {
-      return "list-group-item active" //bu active olsun
-    }else{
-      return "list-group-item "  //eşit değilse active olmayan yaptık
-    }
-  }
 
 }
